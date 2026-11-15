@@ -15,23 +15,19 @@ protected:
     }
 };
 
-TEST_F(CpuTestbench, BaseProgramTest)
-{
+TEST_F(CpuTestbench, BaseProgramTest) {
     bool success = false;
     system("./compile.sh asm/program.S");
 
-    for (int i = 0; i < CYCLES; i++)
-    {
+    for (int i = 0; i < CYCLES; i++) {
         runSimulation(1);
-        if (top->a0 == 254)
-        {
+        if (top->a0 == 254) {
             SUCCEED();
             success = true;
             break;
         }
     }
-    if (!success)
-    {
+    if (!success) {
         FAIL() << "Counter did not reach 254";
     }
 }

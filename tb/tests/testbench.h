@@ -31,6 +31,12 @@ public:
         }
     }
 
+    void runReset() { // allow tb to be reset easily
+        top->rst = 1;
+        runSimulation();
+        top->rst = 0;
+    }
+
     void compile(const std::string &program)
     {
         // Compile
