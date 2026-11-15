@@ -6,9 +6,10 @@ module sign_extend(
 
 always_comb begin
     case (immsrc)
-        1: imm = instruction[31:20]
-        2: imm = {instruc[31],instruc[7],instr[30:25],instr[11:8]} 
+        0: imm = instruction[31:20]
+        1: imm = {instruc[31],instruc[7],instr[30:25],instr[11:8]} 
     ext_im = {{20{imm[11]}},imm};
+    endcase
 end
     
 
